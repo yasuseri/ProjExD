@@ -1,10 +1,10 @@
 import random
 
 def main():
-    collect=shutsudai()
+    collect=shutudai()
     kaitou(collect)
 
-def shutsudai():
+def shutudai():
     ex1=[
         {"q":"サザエの旦那の名前は？","a":["ますお","マスオ"]},
         {"q":"カツオの妹の名前は？","a":["わかめ","ワカメ"]},
