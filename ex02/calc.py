@@ -4,14 +4,18 @@ import tkinter.messagebox as tkm
 def button_click(event):
     btn = event.widget
     num = btn["text"]
-    tkm.showinfo("", f"{num}のボタンがクリックされました")
+    #tkm.showinfo("", f"{num}のボタンがクリックされました")
+    entry.insert(tk.END,num)
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.geometry("300x500") #フィールドを生成
+    #root.geometry("300x600") #フィールドを生成
     root.title("超高機能電卓")
 
-    r, c= 0,0   #列番号と行番号
+    entry = tk.Entry(root, justify="right", width=10, font=("times New Romen", 40))
+    entry.grid(row=0, column=0, columnspan=3)
+
+    r, c= 1, 0   #列番号と行番号
     for num in range(9,-1,-1):
         btn = tk.Button(root, text=f"{num}", width=4, height=2,
              font=("Time New Roman", 30)) #それぞれのボタンを生成
