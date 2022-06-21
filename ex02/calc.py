@@ -13,9 +13,9 @@ def button_click(event):
         entry.insert(tk.END, res)
     
     elif num == "sin":   #数値を入力後にsinの値を返す
-        res_sin = math.sin(math.radians(int(eqn)))
+        res_sin1 = math.sin(math.radians(int(eqn)))
         entry.delete(0, tk.END)
-        res_sin1=round(res_sin, 3)
+        res_sin2=round(res_sin1, 3)
         entry.insert(tk.END, res_sin1)
 
     elif num == "cos":   #数値を入力後にcosの値を返す
@@ -41,15 +41,14 @@ def button_click(event):
         entry.delete(0, tk.END)
         entry.insert(tk.END, eqn_a)
 
-    else:#tkm.showinfo("", f"{num}のボタンがクリックされました")
-        #tkm.showinfo("", f"{num}が表示されました")
+    else:
         entry.insert(tk.END,num)    #それぞれのボタンを電卓に表示
 
 
 
 if __name__ == "__main__":
     root = tk.Tk()
-    #root.geometry("300x600")   #フィールドを生成
+    #root.geometry("300x600")   
     root.title("電卓")   #名前を付ける
 
 
@@ -63,7 +62,7 @@ if __name__ == "__main__":
               font=("Time New Roman", 30))    #それぞれのボタンを生成
 
         btn.bind("<1>", button_click)    #左クリックで反応
-        btn.grid(row=r, column=c)
+        btn.grid(row = r, column = c)
 
         c += 1
         if (i+1)%4 == 0:
