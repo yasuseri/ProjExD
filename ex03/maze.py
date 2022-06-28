@@ -11,18 +11,25 @@ def key_up(event):
 
 def main_proc():
     global cx, cy, mx, my   #グローバル変数
-    #delta = {   #キー：押されているキーkey/値：移動幅リスト[x,y]
-    #        ""      : [0,   0],
-    #        "Up"    : [0, -1], 
-    #        "Down"  : [0, +1],
-    #        "Left"  : [-1, 0],
-    #        "Right" : [+1, 0],
-    #        }
-    #cx, cy = cx+delta[key][0], cy+delta[key][1]
-    if key == "Up"    : my-=1
-    if key == "Down"  : my+=1
-    if key == "Left"  : mx-=1
-    if key == "Right" : mx+=1
+    delta = {   #キー：押されているキーkey/値：移動幅リスト[x,y]
+            "Up"    : [0, -1], 
+            "Down"  : [0, +1],
+            "Left"  : [-1, 0],
+            "Right" : [+1, 0],
+    }
+    try:
+        if maze_bg[my+delta[key][1]][mx+delta[key][0]] == 0:  #もし移動先が床なら
+            my, mx = my+delta[key][1], mx+delta[key][0]
+    except:
+        pass
+
+    #mx+delta[key][0], my+delta[key][1]
+    #if maze_bg[mx+delta[key][0]][my+delta[key][1]] == 1:  #もし移動先が床なら
+    #    my, mx = my+delta[key][1], mx+delta[key][0]
+    #if key == "Up"    : my-=1
+    #if key == "Down"  : my+=1
+    #if key == "Left"  : mx-=1
+    #if key == "Right" : mx+=1
     cx, cy = mx*100+50, my*100+50
     canvas.coords("tori", cx, cy)
     root.after(100,main_proc)
