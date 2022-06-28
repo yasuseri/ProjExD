@@ -35,7 +35,8 @@ if __name__ == "__main__":
     canvas = tk.Canvas(root, width=1500, height=900, bg="black")   #背景色とウインドウを生成
     canvas.pack()
     maze_bg = mm.make_maze(15, 9)   #1が壁,0が床のリストを生成
-    print(maze_bg)
+    mm.show_maze(canvas, maze_bg)   #canvasにmaze_bgを書く
+    #print(maze_bg)
 
     tori = tk.PhotoImage(file="fig/6.png")   #６のこうかとんを使う
     cx, cy = 300, 400  #初期位置
