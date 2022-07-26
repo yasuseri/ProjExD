@@ -2,7 +2,7 @@
 import tkinter
 import math
 import tkinter.messagebox as tkm
-import pygame
+import pygame as pg
 
 NUM_H_BLOCK = 10  # ブロックの数（横方向)
 NUM_V_BLOCK = 10  # ブロックの数（縦方向)
@@ -252,9 +252,9 @@ class Breakout:
         self.setEvents()
 
     def sound(self,n):    #音データから引数のデータを取り出し音を流す関数
-        pygame.mixer.init(frequency = 44100)
-        pygame.mixer.music.load(music_wavs[n])
-        pygame.mixer.music.play(-1)
+        pg.mixer.init(frequency = 44100)
+        pg.mixer.music.load(music_wavs[n])
+        pg.mixer.music.play(-1)
 
     def start(self, event):
         '''ゲーム開始'''
@@ -275,7 +275,7 @@ class Breakout:
             self.loop()
         else:
             self.is_playing = False
-            pygame.mixer.music.stop()   #ポーズのときにbgmを流れないようにする
+            pg.mixer.music.stop()   #ポーズのときにbgmを流れないようにする
 
         
 
